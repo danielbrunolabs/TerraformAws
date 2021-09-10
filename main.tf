@@ -18,12 +18,10 @@ terraform {
 }
 
 provider "aws" {
-  region = vars.region
-  aws_access_key = vars.aws_access_key
-  aws_secret_key = vars.aws_secret_key
+  region = var.region
 }
 
 module "terraform_backend" {
   source         = "./modules/terraform_backend"
-  s3_bucket_name = vars.aws_s3_bucket_name
+  s3_bucket_name = var.aws_s3_bucket_name
 }
